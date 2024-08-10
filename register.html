@@ -1,0 +1,47 @@
+<?php
+if(isset($_POST['submit'])){
+	$name = $_POST['name'];
+	$username = $_POST['username'];
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+
+	$host = 'localhost';
+	$user = 'root';
+	$pass ='';
+	$dbname = 'project';
+
+	$conn = mysqli_connect($host,$user,$pass,$dbname);
+
+	$sql = "INSERT INTO student(name,username,email,password) values('$name','$username','$email','$password')";
+	mysqli_query($conn,$sql);
+}
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register form</title>
+	<link rel="stylesheet" type="text/css" href="register.css">
+</head>
+<body>
+	<div class="Regi">
+		<h1>Register form</h1>
+		<form action="a" method="POST">
+			<p>Fullname</p>
+			<input type="text" name="name" placeholder="Enter your fullname">
+			<p>Username</p>
+			<input type="text" name="Username" placeholder="Enter your Username">
+			<p>Email</p>
+			<input type="email" name="email" placeholder="Enter your email">
+			<p>Password</p>
+			<input type="password" name="password" placeholder="Enter your Password">
+			<input type="submit" name="submit">
+			<a href="login.html">Login.</a>
+		</form>
+	</div>
+</body>
+</html>
